@@ -1,0 +1,135 @@
+#1. What are Channels and Kernels (according to EVA)?
+
+Channel is a holder of specific information in a context. The number of channels and information available in the channel would depend on the image. In a grayscale image we have single channel that contains intenstiy of the color at a pixel but in an RGB image we have 3 channels for each color channel. Collection of channel is called a Layer.
+
+Kernels are multidimensional array of weights that are applied to a part of data to compute dot product of weights & data. The kernel extracts an feature and produces a feature map as output.
+
+
+#2. Why should we (nearly) always use 3x3 kernels?
+
+Advantages of using 3x3 kernels:
+1. Calculations makes easier.
+2. We can create a filter of any size my addling mulitple layers using 3x3.
+3. Smaller filters need lesser parameter calculation then bigger kernels.
+4. instead of using an even number like 2 or 4 we use odd number of 3 because it preserves the symmetry in the information in the receptive field.
+5. Architectures are based on 3x3 so 3x3 Kernels are more accelarated then other in most of the hardware available today.
+
+
+#3. How many times to we need to perform 3x3 convolutions operations to reach close to 1x1 from 199x199 (type each layer output like 199x199 > 197x197...)
+
+we need to apply 99 filters
+
+convolution operation 1:    199 x 199 -> 197 x 197
+convolution operation 2:    197 x 197 -> 195 x 195
+convolution operation 3:    195 x 195 -> 193 x 193
+convolution operation 4:    193 x 193 -> 191 x 191
+convolution operation 5:    191 x 191 -> 189 x 189
+convolution operation 6:    189 x 189 -> 187 x 187
+convolution operation 7:    187 x 187 -> 185 x 185
+convolution operation 8:    185 x 185 -> 183 x 183
+convolution operation 9:    183 x 183 -> 181 x 181
+convolution operation 10:    181 x 181 -> 179 x 179
+convolution operation 11:    179 x 179 -> 177 x 177
+convolution operation 12:    177 x 177 -> 175 x 175
+convolution operation 13:    175 x 175 -> 173 x 173
+convolution operation 14:    173 x 173 -> 171 x 171
+convolution operation 15:    171 x 171 -> 169 x 169
+convolution operation 16:    169 x 169 -> 167 x 167
+convolution operation 17:    167 x 167 -> 165 x 165
+convolution operation 18:    165 x 165 -> 163 x 163
+convolution operation 19:    163 x 163 -> 161 x 161
+convolution operation 20:    161 x 161 -> 159 x 159
+convolution operation 21:    159 x 159 -> 157 x 157
+convolution operation 22:    157 x 157 -> 155 x 155
+convolution operation 23:    155 x 155 -> 153 x 153
+convolution operation 24:    153 x 153 -> 151 x 151
+convolution operation 25:    151 x 151 -> 149 x 149
+convolution operation 26:    149 x 149 -> 147 x 147
+convolution operation 27:    147 x 147 -> 145 x 145
+convolution operation 28:    145 x 145 -> 143 x 143
+convolution operation 29:    143 x 143 -> 141 x 141
+convolution operation 30:    141 x 141 -> 139 x 139
+convolution operation 31:    139 x 139 -> 137 x 137
+convolution operation 32:    137 x 137 -> 135 x 135
+convolution operation 33:    135 x 135 -> 133 x 133
+convolution operation 34:    133 x 133 -> 131 x 131
+convolution operation 35:    131 x 131 -> 129 x 129
+convolution operation 36:    129 x 129 -> 127 x 127
+convolution operation 37:    127 x 127 -> 125 x 125
+convolution operation 38:    125 x 125 -> 123 x 123
+convolution operation 39:    123 x 123 -> 121 x 121
+convolution operation 40:    121 x 121 -> 119 x 119
+convolution operation 41:    119 x 119 -> 117 x 117
+convolution operation 42:    117 x 117 -> 115 x 115
+convolution operation 43:    115 x 115 -> 113 x 113
+convolution operation 44:    113 x 113 -> 111 x 111
+convolution operation 45:    111 x 111 -> 109 x 109
+convolution operation 46:    109 x 109 -> 107 x 107
+convolution operation 47:    107 x 107 -> 105 x 105
+convolution operation 48:    105 x 105 -> 103 x 103
+convolution operation 49:    103 x 103 -> 101 x 101
+convolution operation 50:    101 x 101 -> 99 x 99
+convolution operation 51:    99 x 99 -> 97 x 97
+convolution operation 52:    97 x 97 -> 95 x 95
+convolution operation 53:    95 x 95 -> 93 x 93
+convolution operation 54:    93 x 93 -> 91 x 91
+convolution operation 55:    91 x 91 -> 89 x 89
+convolution operation 56:    89 x 89 -> 87 x 87
+convolution operation 57:    87 x 87 -> 85 x 85
+convolution operation 58:    85 x 85 -> 83 x 83
+convolution operation 59:    83 x 83 -> 81 x 81
+convolution operation 60:    81 x 81 -> 79 x 79
+convolution operation 61:    79 x 79 -> 77 x 77
+convolution operation 62:    77 x 77 -> 75 x 75
+convolution operation 63:    75 x 75 -> 73 x 73
+convolution operation 64:    73 x 73 -> 71 x 71
+convolution operation 65:    71 x 71 -> 69 x 69
+convolution operation 66:    69 x 69 -> 67 x 67
+convolution operation 67:    67 x 67 -> 65 x 65
+convolution operation 68:    65 x 65 -> 63 x 63
+convolution operation 69:    63 x 63 -> 61 x 61
+convolution operation 70:    61 x 61 -> 59 x 59
+convolution operation 71:    59 x 59 -> 57 x 57
+convolution operation 72:    57 x 57 -> 55 x 55
+convolution operation 73:    55 x 55 -> 53 x 53
+convolution operation 74:    53 x 53 -> 51 x 51
+convolution operation 75:    51 x 51 -> 49 x 49
+convolution operation 76:    49 x 49 -> 47 x 47
+convolution operation 77:    47 x 47 -> 45 x 45
+convolution operation 78:    45 x 45 -> 43 x 43
+convolution operation 79:    43 x 43 -> 41 x 41
+convolution operation 80:    41 x 41 -> 39 x 39
+convolution operation 81:    39 x 39 -> 37 x 37
+convolution operation 82:    37 x 37 -> 35 x 35
+convolution operation 83:    35 x 35 -> 33 x 33
+convolution operation 84:    33 x 33 -> 31 x 31
+convolution operation 85:    31 x 31 -> 29 x 29
+convolution operation 86:    29 x 29 -> 27 x 27
+convolution operation 87:    27 x 27 -> 25 x 25
+convolution operation 88:    25 x 25 -> 23 x 23
+convolution operation 89:    23 x 23 -> 21 x 21
+convolution operation 90:    21 x 21 -> 19 x 19
+convolution operation 91:    19 x 19 -> 17 x 17
+convolution operation 92:    17 x 17 -> 15 x 15
+convolution operation 93:    15 x 15 -> 13 x 13
+convolution operation 94:    13 x 13 -> 11 x 11
+convolution operation 95:    11 x 11 -> 9 x 9
+convolution operation 96:    9 x 9 -> 7 x 7
+convolution operation 97:    7 x 7 -> 5 x 5
+convolution operation 98:    5 x 5 -> 3 x 3
+convolution operation 99:    3 x 3 -> 1 x 1
+
+
+#4. How are kernels initialized? 
+
+Kernwels are initialized via an initialization procedure. There's a variety of methods how, including simple ones like random and Gaussian and there's also more advanced techniques like He initialization, MSRA initialization , Xavier initialization/Glorot initialization.
+
+
+#5. What happens during the training of a DNN?
+
+1. We create a NN with mulitple convolution layers
+2. Each layer will have kernels initialized randomly
+3. After each convolution layer we get a larger receptive field
+4. The last convolution layer will be big enough receptive field that help us in determining the features on the input.
+5. If incorrect features have been identified we update our kernels and repeat the above steps, till we get right set of features.
+
