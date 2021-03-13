@@ -26,9 +26,9 @@ Questions in S12-Assignment-Solution:
 
 ## TinyImageNet Model
 
-Github Link: [https://github.com/Keerthi001/12_TinyImageNet/blob/main/12th_AdvancedTraining.ipynb](https://github.com/Keerthi001/12_TinyImageNet/blob/main/12th_AdvancedTraining.ipynb)
+Github Link: [https://github.com/dSaif/EVA5/blob/main/Assignment-12/12th_Advanced.ipynb](https://github.com/dSaif/EVA5/blob/main/Assignment-12/12th_Advanced.ipynb)
 
-Colab Link: [https://colab.research.google.com/github/Keerthi001/12_TinyImageNet/blob/main/12th_AdvancedTraining.ipynb#scrollTo=CDyM79bXAaMl](https://colab.research.google.com/github/Keerthi001/12_TinyImageNet/blob/main/12th_AdvancedTraining.ipynb#scrollTo=CDyM79bXAaMl)
+
 ```
 Final Accuracy
 Test: 53.66
